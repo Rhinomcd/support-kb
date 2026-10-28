@@ -9,11 +9,11 @@
 		<link href="../../../_app/immutable/chunks/Bd_T1796.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CBQOjbEq.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CofTKBN9.js" rel="modulepreload">
-		<link href="../../../_app/immutable/entry/app.QQJHwdfO.js" rel="modulepreload">
+		<link href="../../../_app/immutable/entry/app.CbnTJJGJ.js" rel="modulepreload">
 		<link href="../../../_app/immutable/nodes/0.TlGpBIqZ.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="../../../_app/immutable/nodes/5.D7Vpy8aC.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/ChmVToSs.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/5.BulS0Mt5.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/tQLJs7aw.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/22xctz7e.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CVBzP17p.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/8h0PosEw.js" rel="modulepreload">
@@ -24,8 +24,7 @@
   </head>
   <body>
     <div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 split: two problems, two tickets</h1> <p class="meta svelte-e2jw2j"><span>owner <b>Ryan McDonough</b></span> <span class="status accepted svelte-e2jw2j">accepted</span> <span class="svelte-e2jw2j">reviewed 2026-10-28 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><p><a href="/kb/incidents/4471">#4471</a> holds <strong>412 reports</strong> as one bug: the parser reads
-dates month first. That bug is real and covers most of them. It is not the only one in there.</p> <aside class="warn svelte-17bri61"><!---->#4471 is two problems with two different fixes. The parser fix alone leaves
-33 of these reports broken.<!----></aside><!----> <h2>The split</h2> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>parser</code> shared parser reads the date month first</td><td class="svelte-xskqqx">379</td><td class="svelte-xskqqx">11</td><td class="svelte-xskqqx">2026-04-01 → 2026-10-04</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/1">#1</a><!--]--></td></tr> <!--[0--><tr class="within svelte-xskqqx"><td class="svelte-xskqqx"><code>shift</code> date moves by one day, filed under <code>parser</code> by tenant</td><td class="svelte-xskqqx">5</td><td colspan="3" class="svelte-xskqqx">of the 379 above</td></tr><!--]--><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>hint</code> booking-v3 hint tells people to type month first</td><td class="svelte-xskqqx">33</td><td class="svelte-xskqqx">3</td><td class="svelte-xskqqx">2026-04-17 → 2026-09-22</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/2">#2</a><!--]--></td></tr> <!--[-1--><!--]--><!--]--></tbody><tfoot class="svelte-xskqqx"><tr><td class="svelte-xskqqx">merged into #4471</td><td class="svelte-xskqqx">412</td><td colspan="3" class="svelte-xskqqx"></td></tr></tfoot></table><!----> <p>Counts are the desk’s own cause view, the one the #4471 page runs: each report is counted under
+dates month first. That bug is real and covers most of them. It is not the only one in there.</p> <aside class="note svelte-17bri61"><!---->Closed. The desk closed #4471 on 5 October: <code>parser</code> fixed, <code>hint</code> won't fix.<!----></aside><!----> <h2>The split</h2> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>outcome</th></tr></thead><tbody><!--[--><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>parser</code> shared parser reads the date month first</td><td class="svelte-xskqqx">379</td><td class="svelte-xskqqx">11</td><td class="svelte-xskqqx">2026-04-01 → 2026-10-04</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/1">#1</a><!--]--></td><td class="svelte-xskqqx">fixed</td></tr> <!--[0--><tr class="within svelte-xskqqx"><td class="svelte-xskqqx"><code>shift</code> date moves by one day, filed under <code>parser</code> by tenant</td><td class="svelte-xskqqx">5</td><td colspan="4" class="svelte-xskqqx">of the 379 above</td></tr><!--]--><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>hint</code> booking-v3 hint tells people to type month first</td><td class="svelte-xskqqx">33</td><td class="svelte-xskqqx">3</td><td class="svelte-xskqqx">2026-04-17 → 2026-09-22</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/2">#2</a><!--]--></td><td class="svelte-xskqqx">won't fix</td></tr> <!--[-1--><!--]--><!--]--></tbody><tfoot class="svelte-xskqqx"><tr><td class="svelte-xskqqx">merged into #4471</td><td class="svelte-xskqqx">412</td><td colspan="4" class="svelte-xskqqx"></td></tr></tfoot></table><!----> <p>Counts are the desk’s own cause view, the one the #4471 page runs: each report is counted under
 the cause its tenant and channel give it. The 5 one-day moves stay counted where the desk
 files them, under <code>parser</code>, and are footnoted there.</p> <p>The export has 427 rows for #4471. Its pages overlap, so some reports appear twice; the
 table counts each report id once.</p> <h2>How to tell them apart</h2> <p>Read the dates in the report, then look up the tenant (<code>src/lib/data/tenants/</code>). Every tenant on
@@ -36,22 +35,20 @@ tenant and footnotes them; they have no ticket of their own.</li></ul> <p>Do not
 the report, and it names the wrong problem on 38 of these.</p> <h2>Why one ticket held two</h2> <p><a href="/kb/decisions/0001-dedupe-by-subject">Decision 0001</a> merges on subject line. Both problems
 arrive as “Wrong day on the invite” or “Month and day swapped?”, so subject matching put them in
 one thread, and the queue then read as one bug. The subject says how the reporter felt; the dates
-in the body and the tenant say which bug it is.</p> <h2>What changes</h2> <ul><li>Fix the parser and the booking-v3 hint separately. Ship the hint fix with the parser fix, or
-booking-v3 tenants stay wrong.</li> <li>When a date report comes in, match it to a ticket by its problem, not its subject. 0001 needs a
-new decision record to replace it.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-PWV8-W1MJ</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+in the body and the tenant say which bug it is.</p> <h2>Where it stands</h2> <p>The desk closed #4471 on 5 October, and each ticket here is closed the same way:</p> <ul><li><strong>parser: fixed.</strong> <code>fix(dates): parse dd/mm for eu locales</code> ships the parser fix. <a href="https://github.com/Rhinomcd/support-kb/issues/1">#1</a> is closed as completed.</li> <li><strong>hint: won’t fix.</strong> The booking-v3 form is retired, so its hint is gone with it. <a href="https://github.com/Rhinomcd/support-kb/issues/2">#2</a> is closed as not planned.</li></ul> <p>0001 still merges on subject. A new decision record has to replace it before the next incident.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-PWV8-W1MJ</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_1x8zis8 = {
+					__sveltekit_mdrxek = {
 						base: new URL("../../..", location).pathname.slice(0, -1),
-						version: "1793166321246"
+						version: "1793174354544"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("../../../_app/immutable/entry/start.CI7lNU1V.js").then(async (kit) => {
-						kit.init(__sveltekit_1x8zis8);
-						const app = await import("../../../_app/immutable/entry/app.QQJHwdfO.js");
+						kit.init(__sveltekit_mdrxek);
+						const app = await import("../../../_app/immutable/entry/app.CbnTJJGJ.js");
 						kit.start(app, element, {
 							node_ids: [0, 5],
 							data: [null,null],

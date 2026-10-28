@@ -4,7 +4,8 @@
   import { groupByCause, readAs, uniqueById, type Report } from '#lib/kb/causes';
   import { tenantOf } from '#lib/kb/locales';
 
-  let { ticket, tickets }: { ticket: number; tickets: { parser: string; hint: string } } = $props();
+  type Ticket = { url: string; outcome: string };
+  let { ticket, tickets }: { ticket: number; tickets: { parser: Ticket; hint: Ticket } } = $props();
 
   const merged = $derived(uniqueById(reports as Report[]).filter((r) => r.mergedInto === ticket));
   const groups = $derived(groupByCause(merged, tenantOf));
@@ -18,30 +19,31 @@
 
 <table>
   <thead>
-    <tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr>
+    <tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>outcome</th></tr>
   </thead>
   <tbody>
     {#each groups as g (g.cause)}
-      {@const url = g.cause === 'unplaced' ? undefined : tickets[g.cause]}
+      {@const t = g.cause === 'unplaced' ? undefined : tickets[g.cause]}
       {@const moved = readAs(g, notes.oneDayMove)}
-      <tr class:open={!url}>
+      <tr class:open={!t}>
         <td><code>{g.cause}</code> {WHAT[g.cause]}</td>
         <td>{g.reports.length}</td>
         <td>{g.tenants}</td>
         <td>{g.firstSeen} → {g.lastSeen}</td>
-        <td>{#if url}<a href={url}>{ticketNo(url)}</a>{:else}none yet{/if}</td>
+        <td>{#if t}<a href={t.url}>{ticketNo(t.url)}</a>{:else}none yet{/if}</td>
+        <td>{t?.outcome ?? ''}</td>
       </tr>
       {#if moved}
         <tr class="within">
           <td><code>shift</code> date moves by one day, filed under <code>{g.cause}</code> by tenant</td>
           <td>{moved}</td>
-          <td colspan="3">of the {g.reports.length} above</td>
+          <td colspan="4">of the {g.reports.length} above</td>
         </tr>
       {/if}
     {/each}
   </tbody>
   <tfoot>
-    <tr><td>merged into #{ticket}</td><td>{merged.length}</td><td colspan="3"></td></tr>
+    <tr><td>merged into #{ticket}</td><td>{merged.length}</td><td colspan="4"></td></tr>
   </tfoot>
 </table>
 
