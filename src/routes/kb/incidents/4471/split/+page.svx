@@ -1,9 +1,9 @@
 ---
 layout: runbook
-title: '#4471 split: three problems, three tickets'
+title: '#4471 split: two problems, two tickets'
 owner: Ryan McDonough
-status: proposed
-reviewed: 2026-10-27
+status: accepted
+reviewed: 2026-10-28
 signature: Ryan McDonough (Rhinomcd), with opus-5.5
 ---
 
@@ -25,7 +25,6 @@ signature: Ryan McDonough (Rhinomcd), with opus-5.5
   const tickets = {
     parser: 'https://github.com/Rhinomcd/support-kb/issues/1',
     hint: 'https://github.com/Rhinomcd/support-kb/issues/2',
-    shift: 'https://github.com/Rhinomcd/support-kb/issues/3',
   };
 </script>
 
@@ -33,8 +32,8 @@ signature: Ryan McDonough (Rhinomcd), with opus-5.5
 dates month first. That bug is real and covers most of them. It is not the only one in there.
 
 <Callout kind="warn">
-#4471 is three problems with three different fixes. The parser fix alone leaves
-{count('hint') + shifted} of these reports broken.
+#4471 is two problems with two different fixes. The parser fix alone leaves
+{count('hint')} of these reports broken.
 </Callout>
 
 ## The split
@@ -42,8 +41,8 @@ dates month first. That bug is real and covers most of them. It is not the only 
 <SplitTable ticket={4471} {tickets} />
 
 Counts are the desk's own cause view, the one the #4471 page runs: each report is counted under
-the cause its tenant and channel give it. The one-day moves stay counted where the desk files
-them, under `parser`, and get their own ticket.
+the cause its tenant and channel give it. The {shifted} one-day moves stay counted where the desk
+files them, under `parser`, and are footnoted there.
 
 The export has {rows} rows for #4471. Its pages overlap, so some reports appear twice; the
 table counts each report id once.
@@ -59,16 +58,16 @@ file writes the day first.
 - **Day and month swapped, through a booking-v3 form:** [hint]({tickets.hint}). The form prints
   `MM/DD/YYYY` under the field, people type what it says, and the form reads it day first. Only
   `alder.physio`, `copper.studio` and `pale.harbour` run booking-v3.
-- **The date moved by one day:** [shift]({tickets.shift}). 12 May shown as 11 May, Tuesday shown
-  as Monday, an invite that arrived before the booking. No swap produces that. The desk already
-  listed these in `desk-notes.json`; the #4471 table files them under `parser` and footnotes them.
+- **The date moved by one day:** still [parser]({tickets.parser}). 12 May shown as 11 May,
+  Tuesday shown as Monday. The desk lists these in `desk-notes.json`, files them under `parser` by
+  tenant and footnotes them; they have no ticket of their own.
 
 Do not go by the intake tag. Intake guesses it from the reporter's browser before anyone reads
 the report, and it names the wrong problem on {mistagged} of these.
 
-## Why one ticket held three
+## Why one ticket held two
 
-[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on subject line. All three problems
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on subject line. Both problems
 arrive as "Wrong day on the invite" or "Month and day swapped?", so subject matching put them in
 one thread, and the queue then read as one bug. The subject says how the reporter felt; the dates
 in the body and the tenant say which bug it is.
@@ -77,8 +76,6 @@ in the body and the tenant say which bug it is.
 
 - Fix the parser and the booking-v3 hint separately. Ship the hint fix with the parser fix, or
   booking-v3 tenants stay wrong.
-- Investigate the one-day shift as its own bug: it looks like a time-zone conversion, not
-  parsing.
 - When a date report comes in, match it to a ticket by its problem, not its subject. 0001 needs a
   new decision record to replace it.
 

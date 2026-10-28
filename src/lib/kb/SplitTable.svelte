@@ -4,7 +4,7 @@
   import { groupByCause, readAs, uniqueById, type Report } from '#lib/kb/causes';
   import { tenantOf } from '#lib/kb/locales';
 
-  let { ticket, tickets }: { ticket: number; tickets: { parser: string; hint: string; shift: string } } = $props();
+  let { ticket, tickets }: { ticket: number; tickets: { parser: string; hint: string } } = $props();
 
   const merged = $derived(uniqueById(reports as Report[]).filter((r) => r.mergedInto === ticket));
   const groups = $derived(groupByCause(merged, tenantOf));
@@ -35,8 +35,7 @@
         <tr class="within">
           <td><code>shift</code> date moves by one day, filed under <code>{g.cause}</code> by tenant</td>
           <td>{moved}</td>
-          <td colspan="2">of the {g.reports.length} above</td>
-          <td><a href={tickets.shift}>{ticketNo(tickets.shift)}</a></td>
+          <td colspan="3">of the {g.reports.length} above</td>
         </tr>
       {/if}
     {/each}
