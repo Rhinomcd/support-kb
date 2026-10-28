@@ -23,16 +23,17 @@ signature: Ryan McDonough (Rhinomcd), with opus-5.5
   const shifted = groups.reduce((n, g) => n + readAs(g, notes.oneDayMove), 0);
   const mistagged = groups.flatMap((g) => g.reports.filter((r) => r.meta.intakeTag !== g.cause)).length;
   const tickets = {
-    parser: { url: 'https://github.com/Rhinomcd/support-kb/issues/1', outcome: 'fixed' },
-    hint: { url: 'https://github.com/Rhinomcd/support-kb/issues/2', outcome: "won't fix" },
+    parser: 'https://github.com/Rhinomcd/support-kb/issues/1',
+    hint: 'https://github.com/Rhinomcd/support-kb/issues/2',
   };
 </script>
 
 [#4471](/kb/incidents/4471) holds **{merged.length} reports** as one bug: the parser reads
 dates month first. That bug is real and covers most of them. It is not the only one in there.
 
-<Callout>
-Closed. The desk closed #4471 on 5 October: <code>parser</code> fixed, <code>hint</code> won't fix.
+<Callout kind="warn">
+#4471 is two problems with two different fixes. The parser fix alone leaves
+{count('hint')} of these reports broken.
 </Callout>
 
 ## The split
@@ -51,13 +52,13 @@ table counts each report id once.
 Read the dates in the report, then look up the tenant (`src/lib/data/tenants/`). Every tenant on
 file writes the day first.
 
-- **Day and month swapped, any channel except a booking-v3 form:** [parser]({tickets.parser.url}).
+- **Day and month swapped, any channel except a booking-v3 form:** [parser]({tickets.parser}).
   7 April comes out as 4 July. Reports through booking-v2 forms land here too: v2's hint says
   `DD/MM/YYYY`, so people type day first and the parser flips it.
-- **Day and month swapped, through a booking-v3 form:** [hint]({tickets.hint.url}). The form prints
+- **Day and month swapped, through a booking-v3 form:** [hint]({tickets.hint}). The form prints
   `MM/DD/YYYY` under the field, people type what it says, and the form reads it day first. Only
   `alder.physio`, `copper.studio` and `pale.harbour` run booking-v3.
-- **The date moved by one day:** still [parser]({tickets.parser.url}). 12 May shown as 11 May,
+- **The date moved by one day:** still [parser]({tickets.parser}). 12 May shown as 11 May,
   Tuesday shown as Monday. The desk lists these in `desk-notes.json`, files them under `parser` by
   tenant and footnotes them; they have no ticket of their own.
 
@@ -71,15 +72,11 @@ arrive as "Wrong day on the invite" or "Month and day swapped?", so subject matc
 one thread, and the queue then read as one bug. The subject says how the reporter felt; the dates
 in the body and the tenant say which bug it is.
 
-## Where it stands
+## What changes
 
-The desk closed #4471 on 5 October, and each ticket here is closed the same way:
-
-- **parser: fixed.** `fix(dates): parse dd/mm for eu locales` ships the parser fix.
-  [#1]({tickets.parser.url}) is closed as completed.
-- **hint: won't fix.** The booking-v3 form is retired, so its hint is gone with it.
-  [#2]({tickets.hint.url}) is closed as not planned.
-
-0001 still merges on subject. A new decision record has to replace it before the next incident.
+- Fix the parser and the booking-v3 hint separately. Ship the hint fix with the parser fix, or
+  booking-v3 tenants stay wrong.
+- When a date report comes in, match it to a ticket by its problem, not its subject. 0001 needs a
+  new decision record to replace it.
 
 <RenderStamp {signature} />
