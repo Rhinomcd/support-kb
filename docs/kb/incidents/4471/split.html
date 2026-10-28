@@ -9,29 +9,31 @@
 		<link href="../../../_app/immutable/chunks/Bd_T1796.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CBQOjbEq.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CofTKBN9.js" rel="modulepreload">
-		<link href="../../../_app/immutable/entry/app.PpX0ZjFN.js" rel="modulepreload">
+		<link href="../../../_app/immutable/entry/app.BtGxMSzA.js" rel="modulepreload">
 		<link href="../../../_app/immutable/nodes/0.TlGpBIqZ.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="../../../_app/immutable/nodes/5.FjPwaFuw.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/BEzgOPtY.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/5.CYPnbCTz.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/D_l2dOPm.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/22xctz7e.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CVBzP17p.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/8h0PosEw.js" rel="modulepreload">
 		<!--e2jw2j--><!----><title>#4471 split: three problems, three tickets · support kb</title>
 		<link href="../../../_app/immutable/assets/runbook.COyw0cbZ.css" rel="stylesheet">
 		<link href="../../../_app/immutable/assets/Callout.AbLv9dM_.css" rel="stylesheet">
-		<link href="../../../_app/immutable/assets/_page.Cj3i9fWs.css" rel="stylesheet">
+		<link href="../../../_app/immutable/assets/_page.U4azMRJG.css" rel="stylesheet">
   </head>
   <body>
     <div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 split: three problems, three tickets</h1> <p class="meta svelte-e2jw2j"><span>owner <b>Ryan McDonough</b></span> <span class="status proposed svelte-e2jw2j">proposed</span> <span class="svelte-e2jw2j">reviewed 2026-10-27 · 1 days ago</span></p></header> <!--[-1--><!--]--> <main><p><a href="/kb/incidents/4471">#4471</a> holds <strong>412 reports</strong> as one bug: the parser reads
-dates month first. That bug is real and covers most of them. It is not the only one in there.</p> <aside class="warn svelte-17bri61"><!---->#4471 is 3 problems with 3 different fixes. The parser fix
-alone leaves 38 of these reports broken.<!----></aside><!----> <h2>The split</h2> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>parser</code> shared parser reads the date month first</td><td class="svelte-xskqqx">374</td><td class="svelte-xskqqx">11</td><td class="svelte-xskqqx">2026-04-01 → 2026-10-04</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/1">#1</a><!--]--></td></tr><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>hint</code> booking-v3 hint tells people to type month first</td><td class="svelte-xskqqx">33</td><td class="svelte-xskqqx">3</td><td class="svelte-xskqqx">2026-04-17 → 2026-09-22</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/2">#2</a><!--]--></td></tr><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>shift</code> date moves by one day</td><td class="svelte-xskqqx">5</td><td class="svelte-xskqqx">5</td><td class="svelte-xskqqx">2026-04-02 → 2026-10-04</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/3">#3</a><!--]--></td></tr><!--]--></tbody><tfoot class="svelte-xskqqx"><tr><td class="svelte-xskqqx">total</td><td class="svelte-xskqqx">412</td><td colspan="3" class="svelte-xskqqx"></td></tr></tfoot></table><!----> <p>The export has 427 rows for #4471. Its pages overlap, so some reports appear twice; the
+dates month first. That bug is real and covers most of them. It is not the only one in there.</p> <aside class="warn svelte-17bri61"><!---->#4471 is three problems with three different fixes. The parser fix alone leaves
+38 of these reports broken.<!----></aside><!----> <h2>The split</h2> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>parser</code> shared parser reads the date month first</td><td class="svelte-xskqqx">379</td><td class="svelte-xskqqx">11</td><td class="svelte-xskqqx">2026-04-01 → 2026-10-04</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/1">#1</a><!--]--></td></tr> <!--[0--><tr class="within svelte-xskqqx"><td class="svelte-xskqqx"><code>shift</code> date moves by one day, filed under <code>parser</code> by tenant</td><td class="svelte-xskqqx">5</td><td colspan="2" class="svelte-xskqqx">of the 379 above</td><td class="svelte-xskqqx"><a href="https://github.com/Rhinomcd/support-kb/issues/3">#3</a></td></tr><!--]--><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>hint</code> booking-v3 hint tells people to type month first</td><td class="svelte-xskqqx">33</td><td class="svelte-xskqqx">3</td><td class="svelte-xskqqx">2026-04-17 → 2026-09-22</td><td class="svelte-xskqqx"><!--[0--><a href="https://github.com/Rhinomcd/support-kb/issues/2">#2</a><!--]--></td></tr> <!--[-1--><!--]--><!--]--></tbody><tfoot class="svelte-xskqqx"><tr><td class="svelte-xskqqx">merged into #4471</td><td class="svelte-xskqqx">412</td><td colspan="3" class="svelte-xskqqx"></td></tr></tfoot></table><!----> <p>Counts are the desk’s own cause view, the one the #4471 page runs: each report is counted under
+the cause its tenant and channel give it. The one-day moves stay counted where the desk files
+them, under <code>parser</code>, and get their own ticket.</p> <p>The export has 427 rows for #4471. Its pages overlap, so some reports appear twice; the
 table counts each report id once.</p> <h2>How to tell them apart</h2> <p>Read the dates in the report, then look up the tenant (<code>src/lib/data/tenants/</code>). Every tenant on
 file writes the day first.</p> <ul><li><strong>Day and month swapped, any channel except a booking-v3 form:</strong> <a href="https://github.com/Rhinomcd/support-kb/issues/1">parser</a>.
 7 April comes out as 4 July. Reports through booking-v2 forms land here too: v2’s hint says <code>DD/MM/YYYY</code>, so people type day first and the parser flips it.</li> <li><strong>Day and month swapped, through a booking-v3 form:</strong> <a href="https://github.com/Rhinomcd/support-kb/issues/2">hint</a>. The form prints <code>MM/DD/YYYY</code> under the field, people type what it says, and the form reads it day first. Only <code>alder.physio</code>, <code>copper.studio</code> and <code>pale.harbour</code> run booking-v3.</li> <li><strong>The date moved by one day:</strong> <a href="https://github.com/Rhinomcd/support-kb/issues/3">shift</a>. 12 May shown as 11 May, Tuesday shown
 as Monday, an invite that arrived before the booking. No swap produces that. The desk already
 listed these in <code>desk-notes.json</code>; the #4471 table files them under <code>parser</code> and footnotes them.</li></ul> <p>Do not go by the intake tag. Intake guesses it from the reporter’s browser before anyone reads
-the report, and it names the wrong problem on 43 of these.</p> <h2>Why one ticket held three</h2> <p><a href="/kb/decisions/0001-dedupe-by-subject">Decision 0001</a> merges on subject line. All three problems
+the report, and it names the wrong problem on 38 of these.</p> <h2>Why one ticket held three</h2> <p><a href="/kb/decisions/0001-dedupe-by-subject">Decision 0001</a> merges on subject line. All three problems
 arrive as “Wrong day on the invite” or “Month and day swapped?”, so subject matching put them in
 one thread, and the queue then read as one bug. The subject says how the reporter felt; the dates
 in the body and the tenant say which bug it is.</p> <h2>What changes</h2> <ul><li>Fix the parser and the booking-v3 hint separately. Ship the hint fix with the parser fix, or
@@ -41,16 +43,16 @@ new decision record to replace it.</li></ul> <!--[0--><p class="stamp svelte-128
 			
 			<script>
 				{
-					__sveltekit_ynfn3o = {
+					__sveltekit_9l1k5w = {
 						base: new URL("../../..", location).pathname.slice(0, -1),
-						version: "1793162393717"
+						version: "1793162623917"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("../../../_app/immutable/entry/start.CI7lNU1V.js").then(async (kit) => {
-						kit.init(__sveltekit_ynfn3o);
-						const app = await import("../../../_app/immutable/entry/app.PpX0ZjFN.js");
+						kit.init(__sveltekit_9l1k5w);
+						const app = await import("../../../_app/immutable/entry/app.BtGxMSzA.js");
 						kit.start(app, element, {
 							node_ids: [0, 5],
 							data: [null,null],

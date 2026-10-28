@@ -10,15 +10,18 @@ signature: Ryan McDonough (Rhinomcd), with opus-5.5
 <script>
   import reports from '#lib/data/reports-4471.json';
   import notes from '#lib/data/desk-notes.json';
-  import { splitTicket } from '#lib/kb/split';
+  import { groupByCause, readAs, uniqueById } from '#lib/kb/causes';
   import { tenantOf } from '#lib/kb/locales';
   import SplitTable from '#lib/kb/SplitTable.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 
-  const split = splitTicket(reports, 4471, tenantOf, notes.oneDayMove);
-  const count = (p) => split.groups.find((g) => g.problem === p)?.reports.length ?? 0;
-  const mistagged = split.groups.flatMap((g) => g.reports.filter((r) => r.meta.intakeTag !== g.problem)).length;
+  const rows = reports.filter((r) => r.mergedInto === 4471).length;
+  const merged = uniqueById(reports).filter((r) => r.mergedInto === 4471);
+  const groups = groupByCause(merged, tenantOf);
+  const count = (cause) => groups.find((g) => g.cause === cause)?.reports.length ?? 0;
+  const shifted = groups.reduce((n, g) => n + readAs(g, notes.oneDayMove), 0);
+  const mistagged = groups.flatMap((g) => g.reports.filter((r) => r.meta.intakeTag !== g.cause)).length;
   const tickets = {
     parser: 'https://github.com/Rhinomcd/support-kb/issues/1',
     hint: 'https://github.com/Rhinomcd/support-kb/issues/2',
@@ -26,19 +29,23 @@ signature: Ryan McDonough (Rhinomcd), with opus-5.5
   };
 </script>
 
-[#4471](/kb/incidents/4471) holds **{split.merged.length} reports** as one bug: the parser reads
+[#4471](/kb/incidents/4471) holds **{merged.length} reports** as one bug: the parser reads
 dates month first. That bug is real and covers most of them. It is not the only one in there.
 
 <Callout kind="warn">
-#4471 is {split.groups.length} problems with {split.groups.length} different fixes. The parser fix
-alone leaves {count('hint') + count('shift')} of these reports broken.
+#4471 is three problems with three different fixes. The parser fix alone leaves
+{count('hint') + shifted} of these reports broken.
 </Callout>
 
 ## The split
 
-<SplitTable groups={split.groups} {tickets} />
+<SplitTable ticket={4471} {tickets} />
 
-The export has {split.rows} rows for #4471. Its pages overlap, so some reports appear twice; the
+Counts are the desk's own cause view, the one the #4471 page runs: each report is counted under
+the cause its tenant and channel give it. The one-day moves stay counted where the desk files
+them, under `parser`, and get their own ticket.
+
+The export has {rows} rows for #4471. Its pages overlap, so some reports appear twice; the
 table counts each report id once.
 
 ## How to tell them apart
