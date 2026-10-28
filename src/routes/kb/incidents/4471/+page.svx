@@ -22,6 +22,10 @@ first. The fix is queued.
 Known. One issue, one fix queued.
 </Callout>
 
+<Callout kind="warn">
+Three problems, not one: see [#4471 split](/kb/incidents/4471/split).
+</Callout>
+
 ## What was merged
 
 <CauseTable ticket={4471} />
