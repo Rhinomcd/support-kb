@@ -11,8 +11,7 @@ export default defineConfig({
       preprocess: [mdsvex({ extensions: ['.svx'], layout: { runbook: fileURLToPath(new URL('./src/lib/layouts/runbook.svelte', import.meta.url)) } })],
       adapter: adapter({ pages: 'docs', assets: 'docs' }),
       alias: { '#lib': 'src/lib' },
-      paths: { base: process.env.BASE_PATH ?? '' },
-      prerender: { entries: ['/kb'], handleHttpError: 'warn' },
+      prerender: { entries: ['*'], handleHttpError: 'warn' },
     }),
   ],
 });
