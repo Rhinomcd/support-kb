@@ -4,7 +4,7 @@ title: '#4471 split: two problems, two tickets'
 owner: Ryan McDonough
 status: accepted
 reviewed: 2026-10-28
-signature: Ryan McDonough (Rhinomcd), with opus-5.5
+signature: Rhinomcd
 ---
 
 <script>
